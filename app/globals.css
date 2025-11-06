@@ -8,7 +8,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-serif: var(--font-instrument-serif);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +19,23 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-serif);
+  color: black;
+}
+
+.heavy-text-shadow {
+  text-shadow: 0px 1px 1px color-mix(in oklab, var(--color-gray-950) 50%, transparent);
+}
+
+.mild-text-shadow {
+  text-shadow: 0px 1px 1px color-mix(in oklab, var(--color-gray-950) 15%, transparent);
+}
+
+
+
+.bottom-left-bevel {
+  border-bottom: 1px solid #ededed;
+  border-left: 1px solid #ededed;
+  border-right: 1px solid #ededed;
+  border-radius: 0 0 0 .75rem;
+  corner-shape: bevel;
 }

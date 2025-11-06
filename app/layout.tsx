@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+import { BIZ_UDMincho } from "next/font/google";
+
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
+
+const bizUDMincho = BIZ_UDMincho({
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -17,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.className} antialiased`}>
+    <html lang="en" className={`${bizUDMincho.className} antialiased`}>
       <body className="min-h-screen">{children}</body>
     </html>
   );
