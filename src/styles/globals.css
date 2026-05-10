@@ -18,24 +18,29 @@
 }
 
 body {
-  background: var(--background);
+  background: gray;
   color: black;
+  padding-top: 10px;
+  font-family: "BIZ UDMincho", serif;
 }
 
 .heavy-text-shadow {
-  text-shadow: 0px 1px 1px color-mix(in oklab, var(--color-gray-950) 50%, transparent);
+  text-shadow: 0px 1px 1px
+    color-mix(in oklab, var(--color-gray-950) 50%, transparent);
 }
 
 .mild-text-shadow {
-  text-shadow: 0px 1px 1px color-mix(in oklab, var(--color-gray-950) 15%, transparent);
+  text-shadow: 0px 1px 1px
+    color-mix(in oklab, var(--color-gray-950) 15%, transparent);
 }
-
-
 
 .bottom-left-bevel {
   border-bottom: 1px solid #ededed;
   border-left: 1px solid #ededed;
   border-right: 1px solid #ededed;
-  border-radius: 0 0 0 .75rem;
+  border-radius: 0 0 0 0.75rem;
   corner-shape: bevel;
+}
+
+#main-stage {
 }

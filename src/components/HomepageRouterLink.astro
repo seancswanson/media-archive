@@ -1,0 +1,46 @@
+---
+interface Props {
+  text: string;
+  hint: string;
+  path: string;
+}
+
+const { text, hint, path } = Astro.props;
+---
+
+<a href={path} class="homepage-router-link heavy-text-shadow">
+  <h2 class="homepage-router-link-title">{text}</h2>
+  <p class="homepage-router-link-hint">{hint}</p>
+</a>
+
+<style lang="scss">
+  .homepage-router-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid;
+    padding: 0.5rem;
+    flex: 1;
+    background: #ffffff;
+    background: linear-gradient(
+      178deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(0, 0, 0, 0.025) 100%
+    );
+
+    &:last-of-type {
+      border-bottom: 0px solid;
+    }
+  }
+
+  .homepage-router-link-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+  }
+
+  .homepage-router-link-hint {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+</style>
