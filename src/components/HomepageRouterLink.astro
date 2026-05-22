@@ -20,12 +20,13 @@ const { text, hint, path } = Astro.props;
     align-items: flex-end;
     border-bottom: 1px solid;
     padding: 0.5rem;
+    padding-bottom: 0;
+    padding-top: 2rem;
     flex: 1;
-    background: #ffffff;
     background: linear-gradient(
-      178deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.025) 100%
+      0deg,
+      rgb(247, 129, 83) 0%,
+      rgba(252, 121, 69, 1) 10%
     );
 
     &:last-of-type {
@@ -34,13 +35,12 @@ const { text, hint, path } = Astro.props;
   }
 
   .homepage-router-link-title {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 1.45rem;
     font-weight: 700;
   }
 
   .homepage-router-link-hint {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    text-align: right;
   }
 </style>

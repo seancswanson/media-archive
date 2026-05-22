@@ -9,34 +9,34 @@ const { id } = Astro.props;
 ---
 
 <header id={id}>
-  <div class="relative min-h-42 mb-2 small-tr-bevel bg-[#ff7f00] p-1">
+  <div class="relative mb-2 p-[1px]">
     <img
       src="/dithered-dorfic-clouds.png"
       alt="Background image"
-      class="antialiased big-tr-bl-bevel p-1"
-      style="object-fit: cover; image-rendering: pixelated; position: absolute; inset: 0; width: 100%; height: 100%;"
+      class="antialiased big-tr-bl-bevel p-1 dorfic-cloud"
+      style="object-fit: cover; image-rendering: pixelated;"
     />
   </div>
   <div
-    class="flex flex-col justify-between border-white border small-tr-bevel title-bar-container"
+    class="flex flex-col justify-between border-white border small-tr-big-bl-bevel title-bar-container"
   >
     <div class="flex border-white justify-between items-start">
-      <h1 class="text-6xl font-bold mild-text-shadow pl-1">Media Archive</h1>
+      <h1 class="text-4xl font-bold mild-text-shadow pl-1">Media Archive</h1>
       <div
         class="flex gap-2 items-center small-bl-bevel user-container basis-16 hover:basis-48 hover:pl-6 min-h-[25px]"
       >
         <div class="h-5 w-5 bg-white rounded-full user-info-container"></div>
-        <div class="username">Login</div>
+        <div class="username">Log In</div>
       </div>
     </div>
     <div class="flex border-white justify-between">
-      <h2 class="text-3xl mild-text-shadow tracking-[.22rem] pl-1">
+      <h2 class="text-2xl mild-text-shadow tracking-[.22rem] pl-1">
         games.television.film
       </h2>
-      <div class="flex gap-5 items-center">
+      <div class="flex gap-5 items-end">
         <button
           id="nav-toggle"
-          class="text-3xl font-bold cursor-pointer hover:opacity-80 transition-opacity hamburger"
+          class="h-full font-bold cursor-pointer hover:opacity-80 transition-opacity hamburger"
           aria-label="Open navigation"
           type="button">=</button
         >
@@ -45,7 +45,7 @@ const { id } = Astro.props;
   </div>
 
   <nav id="main-nav" class="nav-container">
-    <div class="flex-1 bottom-left-bevel router-link-container">
+    <div class="flex-1 bottom-left-bevel router-link-container ml-auto w-[98%]">
       <HomepageRouterLink
         text="Your Collections"
         hint="Create, browse, & organize your media"
@@ -62,7 +62,7 @@ const { id } = Astro.props;
         path="/export/"
       />
     </div>
-    <div class="flex place-self-center flex-1 items-center border-white px-2">
+    <div class="flex justify-end border-white p-2">
       <a
         href="/"
         class="text-xl border px-2 rounded-4xl hover:bg-white hover:text-[#ff7f00] transition text-shadow-gray-950 tracking-wide"
@@ -94,6 +94,14 @@ const { id } = Astro.props;
     color: #ededed;
   }
 
+  .dorfic-cloud {
+    background: linear-gradient(
+      0deg,
+      rgb(247, 129, 83) 0%,
+      rgba(252, 121, 69, 1) 10%
+    );
+  }
+
   .user-container {
     transition: all 0.2s ease;
     justify-content: center;
@@ -111,69 +119,25 @@ const { id } = Astro.props;
   .username {
     display: none;
     width: 0;
+    white-space: nowrap;
     transition: all 0.2s ease;
   }
 
   .user-info-container {
-    text-align: right;
     white-space: nowrap;
+    text-align: right;
     display: inline-block;
     position: relative;
     right: 0;
   }
 
-  .big-tr-bl-bevel {
-    border-bottom: 1px solid #ededed;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-    border-radius: 0 3rem 0 3rem;
-    corner-shape: bevel;
+  #nav-toggle {
+    font-size: 18px;
   }
 
-  .small-bl-bevel {
-    border-bottom: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    border-radius: 0 0 0 1.5rem;
-    corner-shape: bevel;
+  .router-link-container {
+    overflow: hidden;
   }
-
-  .small-tr-bl-bevel {
-    border-bottom: 1px solid #ededed;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-    border-radius: 0 1.5rem 0 1.5rem;
-    corner-shape: bevel;
-  }
-
-  .small-tr-bevel {
-    border-bottom: 1px solid #ededed;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-    border-radius: 0 1.5rem 0 0rem;
-    corner-shape: bevel;
-  }
-
-  .big-tl-br-bevel {
-    border-bottom: 1px solid #ededed;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-    border-radius: 3rem 0 3rem 0;
-    corner-shape: bevel;
-  }
-
-  .small-tl-br-bevel {
-    border-bottom: 1px solid #ededed;
-    border-top: 1px solid #ededed;
-    border-left: 1px solid #ededed;
-    border-right: 1px solid #ededed;
-    border-radius: 1.5rem 0 1.5rem 0;
-    corner-shape: bevel;
-  }
-
   .nav-container {
     max-height: 0;
     overflow: hidden;
@@ -189,18 +153,17 @@ const { id } = Astro.props;
   }
 
   .title-bar-container {
-    background: #ffffff;
     background: linear-gradient(
-      178deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(0, 0, 0, 0.025) 100%
+      0deg,
+      rgb(247, 129, 83) 0%,
+      rgba(252, 121, 69, 1) 10%
     );
   }
 
   .hamburger {
     background: transparent;
     transition: all 0.3s ease;
-    width: 40px;
+    width: 60px;
 
     &:hover {
       background: rgba(255, 255, 255, 0.8);
