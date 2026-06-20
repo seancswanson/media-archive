@@ -21,8 +21,9 @@ const { text, hint, path } = Astro.props;
     border-bottom: 1px solid;
     padding: 0.5rem;
     padding-bottom: 0;
-    padding-top: 2rem;
+    padding-top: 0.8rem;
     flex: 1;
+    transition: all 0.3s ease;
     background: linear-gradient(
       0deg,
       rgb(247, 129, 83) 0%,
@@ -32,15 +33,24 @@ const { text, hint, path } = Astro.props;
     &:last-of-type {
       border-bottom: 0px solid;
     }
+
+    &:hover {
+      border-inline: 30px solid white;
+      background: linear-gradient(
+        0deg,
+        rgb(247, 129, 83) 50%,
+        hsl(17, 97%, 70%) 90%
+      );
+    }
   }
 
   .homepage-router-link-title {
-    font-size: 1.45rem;
+    font-size: 1.15rem;
     font-weight: 700;
   }
 
   .homepage-router-link-hint {
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: right;
   }
 </style>

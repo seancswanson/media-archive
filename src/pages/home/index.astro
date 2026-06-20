@@ -1,6 +1,6 @@
 ---
-import Base from "../layouts/Base.astro";
-import Header from "../components/Header.astro";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
 import Sidebar from "@/components/Sidebar.astro";
 ---
 
@@ -11,9 +11,10 @@ import Sidebar from "@/components/Sidebar.astro";
   >
     <Header />
     <main
-      class="grid p-2 h-full small-tr-big-bl-bevel"
+      class="grid grid-cols-[250px_1fr] p-2 gap-4 grid-rows-1 h-full small-tr-big-bl-bevel"
       id="main-stage--content"
     >
+      <Sidebar />
       <div class="content">Content</div>
     </main>
     <footer class="text-lg content-end text-center py-1">

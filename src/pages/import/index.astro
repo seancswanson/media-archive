@@ -1,0 +1,21 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+---
+
+<Base>
+  <div
+    class="h-screen sm:w-3/4 max-w-4xl place-self-center flex flex-col"
+    id="main-stage"
+  >
+    <Header />
+    <main class="h-full small-tr-big-bl-bevel" id="main-stage--content">
+      <Breadcrumbs />
+      <div class="p-2 content">Content</div>
+    </main>
+    <footer class="text-lg content-end text-center py-1">
+      Swanson Digital Arts &copy; 2026
+    </footer>
+  </div>
+</Base>

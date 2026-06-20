@@ -1,7 +1,8 @@
 ---
-import Base from "../layouts/Base.astro";
-import Header from "../components/Header.astro";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
 import Sidebar from "@/components/Sidebar.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
 ---
 
 <Base>
@@ -10,11 +11,9 @@ import Sidebar from "@/components/Sidebar.astro";
     id="main-stage"
   >
     <Header />
-    <main
-      class="grid p-2 h-full small-tr-big-bl-bevel"
-      id="main-stage--content"
-    >
-      <div class="content">Content</div>
+    <main class="h-full small-tr-big-bl-bevel" id="main-stage--content">
+      <Breadcrumbs />
+      <div class="p-2 content">Content</div>
     </main>
     <footer class="text-lg content-end text-center py-1">
       Swanson Digital Arts &copy; 2026

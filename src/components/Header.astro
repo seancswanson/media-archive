@@ -8,25 +8,19 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<header id={id}>
-  <div class="relative mb-2 p-[1px]">
-    <img
-      src="/dithered-dorfic-clouds.png"
-      alt="Background image"
-      class="antialiased big-tr-bl-bevel p-1 dorfic-cloud"
-      style="object-fit: cover; image-rendering: pixelated;"
-    />
-  </div>
+<header class="mb-2 gap-2 flex flex-col">
   <div
     class="flex flex-col justify-between border-white border small-tr-big-bl-bevel title-bar-container"
   >
     <div class="flex border-white justify-between items-start">
       <h1 class="text-4xl font-bold mild-text-shadow pl-1">Media Archive</h1>
       <div
-        class="flex gap-2 items-center small-bl-bevel user-container basis-16 hover:basis-48 hover:pl-6 min-h-[25px]"
+        class="flex gap-2 items-center small-bl-bevel user-container min-h-[25px] px-3 pl-6"
       >
-        <div class="h-5 w-5 bg-white rounded-full user-info-container"></div>
-        <div class="username">Log In</div>
+        <img src="/icon-avatar.svg" alt="User" class="h-5 w-5 user-avatar" />
+        <div class="username text-ellipsis">
+          Testing123123123Testing12312312
+        </div>
       </div>
     </div>
     <div class="flex border-white justify-between">
@@ -42,34 +36,37 @@ const { id } = Astro.props;
         >
       </div>
     </div>
+    <nav id="main-nav" class="nav-container">
+      <div class="flex-1 bottom-left-bevel router-link-container">
+        <HomepageRouterLink
+          text="Dashboard"
+          hint="At-a-glance stats"
+          path="/home/"
+        />
+        <HomepageRouterLink
+          text="Your Collections"
+          hint="Create, browse, & organize your media"
+          path="/collections/"
+        />
+        <HomepageRouterLink
+          text="Import Tools"
+          hint="Bring a collection from elsewhere"
+          path="/import"
+        />
+        <HomepageRouterLink
+          text="Export Tools"
+          hint="Take your collections to-go"
+          path="/export/"
+        />
+      </div>
+    </nav>
   </div>
-
-  <nav id="main-nav" class="nav-container">
-    <div class="flex-1 bottom-left-bevel router-link-container ml-auto w-[98%]">
-      <HomepageRouterLink
-        text="Your Collections"
-        hint="Create, browse, & organize your media"
-        path="/collections/"
-      />
-      <HomepageRouterLink
-        text="Import Tools"
-        hint="Bring a collection from elsewhere"
-        path="/import"
-      />
-      <HomepageRouterLink
-        text="Export Tools"
-        hint="Take your collections to-go"
-        path="/export/"
-      />
-    </div>
-    <div class="flex justify-end border-white p-2">
-      <a
-        href="/"
-        class="text-xl border px-2 rounded-4xl hover:bg-white hover:text-[#ff7f00] transition text-shadow-gray-950 tracking-wide"
-        >Log In</a
-      >
-    </div>
-  </nav>
+  <img
+    src="/dithered-dorfic-clouds.png"
+    alt="Background image"
+    class="antialiased small-tr-big-bl-bevel p-1 dorfic-cloud-banner"
+    style="object-fit: cover; image-rendering: pixelated;"
+  />
 </header>
 
 <script>
@@ -92,9 +89,10 @@ const { id } = Astro.props;
 <style lang="scss">
   header {
     color: #ededed;
+    padding-top: 5px;
   }
 
-  .dorfic-cloud {
+  .dorfic-cloud-banner {
     background: linear-gradient(
       0deg,
       rgb(247, 129, 83) 0%,
@@ -103,32 +101,20 @@ const { id } = Astro.props;
   }
 
   .user-container {
-    transition: all 0.2s ease;
-    justify-content: center;
     cursor: pointer;
-
-    &:hover {
-      justify-content: start;
-    }
-
-    &:hover .username {
-      display: block;
-    }
   }
 
   .username {
-    display: none;
-    width: 0;
     white-space: nowrap;
-    transition: all 0.2s ease;
   }
 
-  .user-info-container {
+  .user-avatar {
     white-space: nowrap;
     text-align: right;
     display: inline-block;
     position: relative;
     right: 0;
+    filter: invert(1);
   }
 
   #nav-toggle {
@@ -137,22 +123,28 @@ const { id } = Astro.props;
 
   .router-link-container {
     overflow: hidden;
+    border: none;
+    z-index: 100;
   }
+
   .nav-container {
     max-height: 0;
     overflow: hidden;
-    transition-property: max-height, border-top;
+    transition-property: max-height, outline;
     transition-duration: 0.25s;
     transition-timing-function: ease;
     transition-delay: 0, 0.5s;
+    outline: 1px solid transparent;
   }
 
   .nav-container-expanded {
     max-height: 500px;
     overflow: visible;
+    outline: 1px solid white;
   }
 
   .title-bar-container {
+    overflow: hidden;
     background: linear-gradient(
       0deg,
       rgb(247, 129, 83) 0%,
@@ -163,7 +155,7 @@ const { id } = Astro.props;
   .hamburger {
     background: transparent;
     transition: all 0.3s ease;
-    width: 60px;
+    width: 30px;
 
     &:hover {
       background: rgba(255, 255, 255, 0.8);

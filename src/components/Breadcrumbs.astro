@@ -1,0 +1,26 @@
+<aside aria-label="Breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb-links">
+        <li class="breadcrumb-link">
+            <a href="/home"
+                ><img src="/icon-home.svg" alt="User" class="h-3 w-3" /></a
+            >
+        </li>
+        <li class="breadcrumb-link">
+            <a href=`${Astro.url.pathname}`>{Astro.url.pathname}</a>
+        </li>
+    </ol>
+</aside>
+<style>
+    .breadcrumb-container {
+        display: flex;
+        align-items: center;
+        background: white;
+        font-size: 12px;
+    }
+
+    .breadcrumb-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+</style>
